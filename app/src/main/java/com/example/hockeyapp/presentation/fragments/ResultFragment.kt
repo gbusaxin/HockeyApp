@@ -7,34 +7,35 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.hockeyapp.R
-import com.example.hockeyapp.databinding.FragmentNewsBinding
+import com.example.hockeyapp.databinding.FragmentResultBinding
 import com.example.hockeyapp.presentation.HockeyViewModel
-import com.example.hockeyapp.presentation.adapters.NewsAdapter
+import com.example.hockeyapp.presentation.adapters.ResultAdapter
 
 
-class NewsFragment : Fragment() {
+class ResultFragment : Fragment() {
 
-    private lateinit var binding:FragmentNewsBinding
-    private lateinit var adapter:NewsAdapter
-    private lateinit var viewModel: HockeyViewModel
+    private lateinit var adapter:ResultAdapter
+    private lateinit var viewModel:HockeyViewModel
+    private lateinit var binding:FragmentResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewsBinding.inflate(inflater,container,false)
+        binding = FragmentResultBinding.inflate(inflater,container,false)
+        val view = binding.root
+        adapter = ResultAdapter()
         viewModel = ViewModelProvider(this)[HockeyViewModel::class.java]
-        adapter = NewsAdapter()
-        val root = binding.root
         // Inflate the layout for this fragment
-        return root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.newsInfoList.observe(viewLifecycleOwner,{
+        val rvResult = binding.rvResult
+        viewModel.resultInfoList.observe(viewLifecycleOwner,{
             adapter.list = it
-            binding.rvNews.adapter = adapter
+            rvResult.adapter = adapter
         })
     }
 

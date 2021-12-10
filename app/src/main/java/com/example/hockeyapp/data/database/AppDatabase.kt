@@ -4,13 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.hockeyapp.data.database.pojo.NewsInfoDbModel
-import com.example.hockeyapp.data.database.pojo.TournamentInfoDbModel
+import com.example.hockeyapp.data.database.pojo.*
 
 @Database(
     entities = [NewsInfoDbModel::class,
-               TournamentInfoDbModel::class],
-    version = 2,
+               TournamentInfoDbModel::class,
+               TeamInfoDbModel::class,
+               ResultInfoDbModel::class,
+               FixturesInfoDbModel::class],
+    version = 5,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

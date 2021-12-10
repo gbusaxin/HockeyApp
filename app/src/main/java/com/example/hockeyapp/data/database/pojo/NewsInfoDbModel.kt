@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "news_info")
 data class NewsInfoDbModel (
     @PrimaryKey
-    val title: String,
+    var title: String,
 
     val date: String? = null,
 
