@@ -20,6 +20,6 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.hockeyapp.ui.slideshow.SlideshowFragment"
-        android:label="Лучшие игроки"
+        android:label="КХЛ"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
